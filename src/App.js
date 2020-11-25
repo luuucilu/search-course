@@ -5,14 +5,6 @@ import { useState } from "react";
 
 function App() {
 
-  const [inputValue, setInputValue] = useState("");
-
-  function handleChange(e){
-    const { value } = e.target;
-    const filterStr = courses.filter(course => course.name.toLowerCase().includes(value.toLowerCase()));
-    setInputValue(filterStr);
-  }
-
   const courses = [
     {
       name: 'HTML Y CSS',
@@ -29,6 +21,16 @@ function App() {
     }
 
   ]
+
+  const [inputValue, setInputValue] = useState(courses);
+
+  function handleChange(e){
+    const { value } = e.target;
+    const filterStr = courses.filter(course => course.name.toLowerCase().includes(value.toLowerCase()));
+    setInputValue(filterStr);
+  }
+
+
 
   return (
     <div className="App">
